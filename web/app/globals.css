@@ -133,3 +133,64 @@ a.contact-value { display: block; color: var(--orange); margin: 4px 0; }
   .services { grid-template-columns: 1fr; }
   .nav-link { display: none; }
 }
+
+/* ===== 휴대폰 ===== */
+.btn-block { width: 100%; padding: 15px; font-size: 17px; }
+.btn-sm { padding: 6px 12px; font-size: 13px; }
+.pw { display: flex; gap: 8px; align-items: center; }
+.pw input { flex: 1; min-width: 0; }
+.callbar { display: none; }
+
+/* 사장님 화면 */
+.admin { display: flex; flex-direction: column; gap: 20px; max-width: 560px; margin: 0 auto; }
+.ok-banner { background: var(--green); color: var(--paper); padding: 12px 16px; border-radius: 14px; margin: 0; }
+.ok-banner a { color: var(--orange); font-weight: 700; margin-left: 6px; }
+.admin-form { display: flex; flex-direction: column; gap: 14px; background: var(--paper); padding: 18px; border-radius: 20px; }
+.admin-form h1 { margin: 0; color: var(--green); font-size: 22px; }
+.admin-form label { display: flex; flex-direction: column; gap: 6px; font-size: 15px; font-weight: 600; }
+.admin-form input, .admin-form textarea { padding: 13px 14px; border: 2px solid var(--line); border-radius: 12px; font-size: 17px; font-family: inherit; background: #fff; }
+.photo-pick { position: relative; aspect-ratio: 4 / 3; max-width: 100%; border: 3px dashed var(--green); border-radius: 18px; background: var(--cream); display: grid !important; place-items: center; text-align: center; color: var(--green); font-size: 18px; font-weight: 700; overflow: hidden; cursor: pointer; }
+.photo-pick span { line-height: 1.6; font-size: 18px; }
+.photo-pick.has { border-style: solid; }
+.photo-pick img { width: 100%; height: 100%; object-fit: cover; }
+.photo-pick input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.seg-big { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.seg-big button { padding: 14px 6px; border-radius: 12px; border: 2px solid var(--green); background: #fff; color: var(--green); font-size: 16px; font-weight: 700; font-family: inherit; cursor: pointer; }
+.seg-big button[aria-pressed="true"] { background: var(--green); color: var(--paper); }
+.admin-list { display: flex; flex-direction: column; gap: 10px; }
+.admin-list h2 { margin: 0; color: var(--green); font-size: 20px; }
+.admin-row { display: flex; gap: 12px; background: var(--paper); border-radius: 16px; padding: 10px; }
+.admin-thumb { width: 92px; height: 92px; flex: none; border-radius: 12px; overflow: hidden; background: var(--sage); display: grid; place-items: center; }
+.admin-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.admin-thumb .noimg { width: 40%; height: auto; opacity: .55; }
+.admin-info { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.admin-info .price { margin: 0; }
+.seg-small { display: flex; gap: 4px; flex-wrap: wrap; }
+.seg-small button { padding: 7px 10px; border-radius: 999px; border: 1.5px solid var(--line); background: #fff; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; color: var(--text); }
+.seg-small button[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); color: #fff; }
+.row-tight { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  main.container { padding-block: 14px 96px; }
+  .header-inner { min-height: 56px; }
+  .logo { font-size: 20px; }
+  .hero { border-radius: 18px; }
+  .hero h1 { font-size: 38px; letter-spacing: -1px; }
+  .hero-sub { font-size: 15px; }
+  .hero-actions .btn { flex: 1; text-align: center; padding: 13px 10px; }
+  .hero-img { max-width: 220px; }
+  .service { padding: 18px; }
+  .section-head .search { max-width: none; }
+  .chips { gap: 6px; }
+  .chip { padding: 9px 18px; font-size: 16px; }
+  .card-body { padding: 10px 10px 12px; }
+  .card-title { font-size: 15px; }
+  .footer { padding-bottom: 96px; }
+  /* 아래 고정 전화 버튼 */
+  .callbar { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--cream); border-top: 2px solid var(--green); }
+  .callbar a { flex: 1; text-align: center; padding: 14px 8px; border-radius: 14px; font-weight: 800; font-size: 17px; }
+  .callbar-items { background: var(--paper); color: var(--green); border: 2px solid var(--green); flex: 0 0 38% !important; }
+  .callbar-call { background: var(--orange); color: #fff; }
+  .contact { position: static; }
+}

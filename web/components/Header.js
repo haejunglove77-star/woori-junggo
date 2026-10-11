@@ -27,9 +27,8 @@ export default function Header() {
           <a href={`tel:${SHOP.phone}`} className="nav-tel">📞 {SHOP.phone}</a>
           {user && (
             <>
-              <Link href="/my">등록한 물건</Link>
               <button className="link-btn" onClick={logout}>로그아웃</button>
-              <Link href="/sell" className="btn btn-orange">물건 등록</Link>
+              <Link href="/admin" className="btn btn-orange">물건 올리기</Link>
             </>
           )}
         </nav>

@@ -1,6 +1,9 @@
 import "./globals.css";
 import Header from "@/components/Header";
+import CallBar from "@/components/CallBar";
 import { SHOP } from "@/lib/shop";
+
+export const viewport = { themeColor: "#1f6f5c" };
 
 export const metadata = {
   title: `${SHOP.name} | ${SHOP.slogan}`,
@@ -26,9 +29,10 @@ export default function RootLayout({ children }) {
             </div>
             <div>문의 <a href={`tel:${SHOP.phone}`}>{SHOP.phone}</a></div>
             <div className="small">{SHOP.slogan}</div>
-            <a href="/login" className="owner-link">사장님 로그인</a>
+            <a href="/admin" className="owner-link">사장님 화면</a>
           </div>
         </footer>
+        <CallBar />
       </body>
     </html>
   );

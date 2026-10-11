@@ -37,7 +37,7 @@ export async function listMyItems(userId) {
 }
 
 export async function uploadImage(file, userId) {
-  const ext = file.name.split(".").pop();
+  const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
   const path = `${userId}/${Date.now()}.${ext}`;
   const { error } = await supabase.storage.from("item-images").upload(path, file);
   if (error) throw error;

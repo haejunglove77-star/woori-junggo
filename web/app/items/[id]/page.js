@@ -28,7 +28,7 @@ export default function ItemDetail() {
   async function remove() {
     if (!confirm("정말 삭제할까요?")) return;
     await deleteItem(item.id);
-    router.push("/my");
+    router.push("/admin");
   }
 
   return (
