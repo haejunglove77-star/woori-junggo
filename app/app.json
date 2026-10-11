@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "우리동네중고",
+    "slug": "woori-junggo",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "android": { "package": "com.woorijunggo.app" },
+    "ios": { "bundleIdentifier": "com.woorijunggo.app" }
+  }
+}
