@@ -18,7 +18,13 @@ export default function Sell() {
 
   if (isDemo) return <p>체험 모드에서는 판매 등록을 할 수 없어요. Supabase를 연결해 주세요.</p>;
   if (loading) return <p className="muted">확인 중...</p>;
-  if (!user) return <p>판매하려면 먼저 <Link href="/login">로그인</Link>해 주세요.</p>;
+  if (!user) return (
+    <div className="empty">
+      <strong>물건을 팔려면 로그인이 필요해요</strong>
+      <span>둘러보기는 로그인 없이 할 수 있어요.</span>
+      <Link href="/login" className="btn btn-green">로그인 / 회원가입</Link>
+    </div>
+  );
 
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase, isDemo } from "@/lib/supabase";
 import { useUser } from "@/lib/useUser";
+import { SHOP } from "@/lib/shop";
 
 export default function Header() {
   const { user } = useUser();
@@ -16,24 +17,23 @@ export default function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <Link href="/" className="logo">🥕 우리동네중고</Link>
+        <Link href="/" className="logo">
+          <img src="/logo-pin.png" alt="" width="28" height="36" />
+          <span>{SHOP.name}</span>
+        </Link>
         <nav className="nav">
-          <Link href="/sell" className="btn btn-primary">판매하기</Link>
+          <a href={`tel:${SHOP.phone}`} className="nav-tel">📞 {SHOP.phone}</a>
           {user ? (
             <>
-              <Link href="/my">내 상품</Link>
+              <Link href="/my">내 물건</Link>
               <button className="link-btn" onClick={logout}>로그아웃</button>
             </>
           ) : (
-            <Link href="/login">로그인</Link>
+            !isDemo && <Link href="/login" className="nav-login">로그인</Link>
           )}
+          <Link href="/sell" className="btn btn-orange">물건 팔기</Link>
         </nav>
       </div>
-      {isDemo && (
-        <div className="demo-bar">
-          체험 모드예요. 예시 상품만 보이며, Supabase를 연결하면 실제로 사고팔 수 있어요.
-        </div>
-      )}
     </header>
   );
 }

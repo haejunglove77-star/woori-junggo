@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { getItem, updateStatus, deleteItem, won, timeAgo } from "@/lib/data";
 import { useUser } from "@/lib/useUser";
+import { SHOP } from "@/lib/shop";
 
 export default function ItemDetail() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ export default function ItemDetail() {
   }, [id]);
 
   if (item === undefined) return <p className="muted">불러오는 중...</p>;
-  if (item === null) return <p>상품을 찾을 수 없어요.</p>;
+  if (item === null) return <div className="empty"><strong>물건을 찾을 수 없어요</strong><a href="/" className="btn btn-green">목록으로 가기</a></div>;
 
   const isMine = user && user.id === item.user_id;
 
@@ -31,6 +32,8 @@ export default function ItemDetail() {
   }
 
   return (
+    <>
+    <a href="/" className="back">← 목록으로</a>
     <article className="detail">
       <div className="detail-img">
         {item.image_url ? <img src={item.image_url} alt={item.title} /> : <span>📦</span>}
@@ -54,10 +57,11 @@ export default function ItemDetail() {
         ) : (
           <div className="contact">
             <div className="small muted">판매자 연락처</div>
-            <div>{item.contact || "로그인 후 판매자에게 문의해 보세요."}</div>
+            <div className="contact-value">{item.contact || <>가게로 문의해 주세요: <a href={`tel:${SHOP.phone}`}>{SHOP.phone}</a></>}</div>
           </div>
         )}
       </div>
     </article>
+    </>
   );
 }
