@@ -3,4 +3,5 @@ export const SHOP = {
   name: "우리동네중고",
   slogan: "이웃이 믿고 사는 중고",
   phone: "010-6312-8954",
+  what: "중고 냉장고 · 세탁기 · 가구 매입 · 판매",
 };

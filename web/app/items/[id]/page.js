@@ -36,12 +36,12 @@ export default function ItemDetail() {
     <a href="/" className="back">← 목록으로</a>
     <article className="detail">
       <div className="detail-img">
-        {item.image_url ? <img src={item.image_url} alt={item.title} /> : <span>📦</span>}
+        {item.image_url ? <img src={item.image_url} alt={item.title} /> : <img src="/logo-pin.png" alt="" className="noimg" />}
       </div>
       <div className="detail-info">
         <span className="tag">{item.status}</span>
         <h1>{item.title}</h1>
-        <div className="muted small">{item.category} · {item.location} · {timeAgo(item.created_at)}</div>
+        <div className="muted small">{[item.category, item.location].filter(Boolean).join(" · ")} · {timeAgo(item.created_at)} 입고</div>
         <div className="price big">{won(item.price)}</div>
         <p className="desc">{item.description}</p>
 
@@ -56,8 +56,9 @@ export default function ItemDetail() {
           </div>
         ) : (
           <div className="contact">
-            <div className="small muted">판매자 연락처</div>
-            <div className="contact-value">{item.contact || <>가게로 문의해 주세요: <a href={`tel:${SHOP.phone}`}>{SHOP.phone}</a></>}</div>
+            <div className="small muted">구매 · 배송 문의</div>
+            <a className="contact-value" href={`tel:${SHOP.phone}`}>📞 {SHOP.phone}</a>
+            <div className="small muted">매장에 직접 오셔서 보셔도 좋아요. 배송·설치는 전화로 상담해 주세요.</div>
           </div>
         )}
       </div>

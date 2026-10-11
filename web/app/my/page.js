@@ -18,9 +18,9 @@ export default function My() {
 
   return (
     <>
-      <h1>내 판매 상품</h1>
+      <h1>등록한 매장 물건</h1>
       {items.length === 0 ? (
-        <p className="muted">아직 올린 상품이 없어요. <Link href="/sell">첫 물건 올리기</Link></p>
+        <p className="muted">아직 등록한 물건이 없어요. <Link href="/sell">첫 물건 등록하기</Link></p>
       ) : (
         <div className="grid">{items.map((i) => <ItemCard key={i.id} item={i} />)}</div>
       )}

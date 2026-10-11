@@ -22,8 +22,8 @@ export default function Login() {
 
   return (
     <form className="form narrow" onSubmit={submit}>
-      <h1>가게 주인 로그인</h1>
-      <p className="muted small">물건 등록은 가게 주인만 할 수 있어요. 손님은 로그인 없이 둘러보시면 돼요.</p>
+      <h1>사장님 로그인</h1>
+      <p className="muted small">매장 물건 등록은 사장님만 할 수 있어요. 손님은 로그인 없이 둘러보시면 돼요.</p>
       <label>이메일<input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} /></label>
       <label>비밀번호<input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} /></label>
       {msg && <p className="error">{msg}</p>}

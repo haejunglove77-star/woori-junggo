@@ -4,7 +4,7 @@ import { SHOP } from "@/lib/shop";
 
 export const metadata = {
   title: `${SHOP.name} | ${SHOP.slogan}`,
-  description: "우리 동네 이웃과 믿고 사고파는 중고거래. 로그인 없이 누구나 둘러볼 수 있어요.",
+  description: "중고 냉장고, 세탁기, 가구를 정직하게 사고 파는 동네 중고매장 우리동네중고.",
 };
 
 export default function RootLayout({ children }) {
@@ -22,11 +22,11 @@ export default function RootLayout({ children }) {
             <div className="footer-brand">
               <img src="/logo-pin.png" alt="" width="22" height="28" />
               <strong>{SHOP.name}</strong>
-              <span>{SHOP.slogan}</span>
+              <span>{SHOP.what}</span>
             </div>
             <div>문의 <a href={`tel:${SHOP.phone}`}>{SHOP.phone}</a></div>
-            <div className="small">직거래는 밝은 시간, 사람 많은 곳에서 만나세요.</div>
-            <a href="/login" className="owner-link">가게 주인 로그인</a>
+            <div className="small">{SHOP.slogan}</div>
+            <a href="/login" className="owner-link">사장님 로그인</a>
           </div>
         </footer>
       </body>
