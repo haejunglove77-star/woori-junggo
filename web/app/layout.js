@@ -26,6 +26,7 @@ export default function RootLayout({ children }) {
             </div>
             <div>문의 <a href={`tel:${SHOP.phone}`}>{SHOP.phone}</a></div>
             <div className="small">직거래는 밝은 시간, 사람 많은 곳에서 만나세요.</div>
+            <a href="/login" className="owner-link">가게 주인 로그인</a>
           </div>
         </footer>
       </body>

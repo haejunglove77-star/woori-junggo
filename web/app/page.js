@@ -33,7 +33,7 @@ export default function Home() {
           <div className="hero-text">
             <h1>{SHOP.name}</h1>
             <p className="hero-slogan">{SHOP.slogan}</p>
-            <p className="hero-sub">로그인 없이 누구나 편하게 둘러보세요.</p>
+            <p className="hero-sub">로그인 없이 누구나 편하게 둘러보세요. 마음에 드는 물건은 전화로 문의하세요.</p>
             <input
               className="search"
               type="search"

@@ -5,12 +5,13 @@ import Link from "next/link";
 import { CATEGORIES, createItem, uploadImage } from "@/lib/data";
 import { isDemo } from "@/lib/supabase";
 import { useUser } from "@/lib/useUser";
+import { SHOP } from "@/lib/shop";
 
 export default function Sell() {
   const { user, loading } = useUser();
   const router = useRouter();
   const [form, setForm] = useState({
-    title: "", price: "", category: "디지털기기", location: "", description: "", contact: "",
+    title: "", price: "", category: "디지털기기", location: "", description: "", contact: SHOP.phone,
   });
   const [file, setFile] = useState(null);
   const [saving, setSaving] = useState(false);
@@ -20,9 +21,9 @@ export default function Sell() {
   if (loading) return <p className="muted">확인 중...</p>;
   if (!user) return (
     <div className="empty">
-      <strong>물건을 팔려면 로그인이 필요해요</strong>
-      <span>둘러보기는 로그인 없이 할 수 있어요.</span>
-      <Link href="/login" className="btn btn-green">로그인 / 회원가입</Link>
+      <strong>물건 등록은 가게 주인만 할 수 있어요</strong>
+      <span>둘러보기는 로그인 없이 누구나 할 수 있어요.</span>
+      <Link href="/" className="btn btn-green">물건 구경하러 가기</Link>
     </div>
   );
 

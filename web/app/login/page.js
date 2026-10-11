@@ -3,38 +3,31 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase, isDemo } from "@/lib/supabase";
 
+// 가게 주인 전용 로그인 (회원가입 없음)
 export default function Login() {
   const router = useRouter();
-  const [mode, setMode] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
 
-  if (isDemo) return <p>체험 모드에서는 로그인할 수 없어요. Supabase를 연결해 주세요.</p>;
+  if (isDemo) return <p>창고(Supabase)가 연결되지 않았어요.</p>;
 
   async function submit(e) {
     e.preventDefault();
     setMsg("");
-    if (mode === "signup") {
-      const { error } = await supabase.auth.signUp({ email, password });
-      setMsg(error ? error.message : "가입 확인 메일을 보냈어요. 메일의 링크를 누른 뒤 로그인해 주세요.");
-    } else {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) setMsg("이메일 또는 비밀번호를 확인해 주세요.");
-      else router.push("/");
-    }
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) setMsg("이메일 또는 비밀번호를 확인해 주세요.");
+    else router.push("/sell");
   }
 
   return (
     <form className="form narrow" onSubmit={submit}>
-      <h1>{mode === "login" ? "로그인" : "회원가입"}</h1>
-      <label>이메일<input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} /></label>
-      <label>비밀번호 (6자 이상)<input type="password" required minLength={6} value={password} onChange={(e) => setPassword(e.target.value)} /></label>
-      {msg && <p className="note">{msg}</p>}
-      <button className="btn btn-primary">{mode === "login" ? "로그인" : "가입하기"}</button>
-      <button type="button" className="link-btn" onClick={() => setMode(mode === "login" ? "signup" : "login")}>
-        {mode === "login" ? "처음이세요? 회원가입" : "이미 계정이 있어요. 로그인"}
-      </button>
+      <h1>가게 주인 로그인</h1>
+      <p className="muted small">물건 등록은 가게 주인만 할 수 있어요. 손님은 로그인 없이 둘러보시면 돼요.</p>
+      <label>이메일<input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} /></label>
+      <label>비밀번호<input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} /></label>
+      {msg && <p className="error">{msg}</p>}
+      <button className="btn btn-green">로그인</button>
     </form>
   );
 }

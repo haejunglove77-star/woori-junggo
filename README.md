@@ -27,3 +27,9 @@
 ```
 cd web && npm install && npm run dev   # http://localhost:3000
 ```
+
+## 가게 주인만 물건 등록하기
+- 홈페이지에는 회원가입이 없어요. 손님은 로그인 없이 구경만 해요.
+- 주인 계정은 Supabase > Authentication > Users > Add user 에서 만들어요.
+- Supabase > Authentication > Sign In / Providers 에서 "Allow new users to sign up"을 꺼 두어야 다른 사람이 몰래 가입할 수 없어요.
+- 주인 로그인은 홈페이지 맨 아래 "가게 주인 로그인"에 있어요.

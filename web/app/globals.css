@@ -100,6 +100,7 @@ main.container { padding-block: 20px 56px; min-height: 70vh; }
 .footer-brand { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center; }
 .footer-brand span { color: var(--orange); }
 .footer a { color: var(--orange); font-weight: 700; }
+.footer a.owner-link { color: var(--sage); font-weight: 400; font-size: 12px; opacity: .7; margin-top: 6px; }
 
 @media (max-width: 720px) {
   .hero-body { grid-template-columns: 1fr; padding: 22px 18px 0; }

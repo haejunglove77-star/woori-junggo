@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { supabase, isDemo } from "@/lib/supabase";
+import { supabase } from "@/lib/supabase";
 import { useUser } from "@/lib/useUser";
 import { SHOP } from "@/lib/shop";
 
@@ -23,15 +23,13 @@ export default function Header() {
         </Link>
         <nav className="nav">
           <a href={`tel:${SHOP.phone}`} className="nav-tel">📞 {SHOP.phone}</a>
-          {user ? (
+          {user && (
             <>
               <Link href="/my">내 물건</Link>
               <button className="link-btn" onClick={logout}>로그아웃</button>
+              <Link href="/sell" className="btn btn-orange">물건 팔기</Link>
             </>
-          ) : (
-            !isDemo && <Link href="/login" className="nav-login">로그인</Link>
           )}
-          <Link href="/sell" className="btn btn-orange">물건 팔기</Link>
         </nav>
       </div>
     </header>
